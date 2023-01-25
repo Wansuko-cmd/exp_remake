@@ -9,6 +9,6 @@ typedef struct {
     int size;
 } Profiles;
 
-void profiles_sort(Profiles target, Column column);
+void profiles_sort(Profiles *target, Column column);
 
 #endif //EXP2_PROFILES_H
