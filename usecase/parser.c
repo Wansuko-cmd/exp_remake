@@ -19,6 +19,8 @@ Result parse_line(Profiles *profiles, char* line) {
             return command_print(profiles, atoi(param));
         case 'F':
             return command_find(profiles, param);
+        case 'Q':
+            return result_exit("");
         default:
             sprintf(message, "Invalid command %c: ignored.\n", command);
             return result_error(message);
