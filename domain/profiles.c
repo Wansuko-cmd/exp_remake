@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include "profiles.h"
 
 #define INSERTION_SORT_THRESHOLD 8
@@ -5,6 +6,12 @@
 void profiles_quick_sort(Profiles *target, int left, int right, Column column);
 void profiles_insert_sort(Profiles *target, int low, int high, Column column);
 void profiles_swap_profile(Profiles *target, int from, int to);
+
+Profiles* profiles_create() {
+    Profiles *result = malloc(sizeof(Profiles));
+    result->size = 0;
+    return result;
+}
 
 void profiles_append(Profiles *target, Profile *value) {
     target->data[target->size] = value;

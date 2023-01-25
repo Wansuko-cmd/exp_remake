@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 
@@ -15,6 +16,7 @@ int split(char* target, char* ret[], char separator, int max){
             target[i] = '\0';
             ret[count++] = &target[i + 1];
         }
+        printf("%d\n", length);
     }
     return count;
 }

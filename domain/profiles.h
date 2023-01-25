@@ -9,6 +9,7 @@ typedef struct {
     int size;
 } Profiles;
 
+Profiles* profiles_create();
 void profiles_append(Profiles *target, Profile *value);
 void profiles_sort(Profiles *target, Column column);
 
