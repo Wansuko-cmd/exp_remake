@@ -12,8 +12,8 @@ typedef struct {
     char* message;
 } Result;
 
-Result* result_continue(char* message);
-Result* result_exit(char* message);
-Result* result_error(char* message);
+Result result_continue(char* message);
+Result result_exit(char* message);
+Result result_error(char* message);
 
 #endif //EXP2_RESULT_H

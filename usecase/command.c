@@ -3,7 +3,7 @@
 #include "command.h"
 #include "../utils/char_utils.h"
 
-Result* command_register(Profiles *target, char *csv){
+Result command_register(Profiles *target, char *csv){
     char* tmp[6];
     Date *date;
     Profile *profile;
