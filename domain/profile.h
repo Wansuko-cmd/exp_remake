@@ -13,4 +13,6 @@ typedef struct {
     char* comment;
 } Profile;
 
+Profile* profile_create();
+
 #endif //EXP2_PROFILE_H

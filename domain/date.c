@@ -3,6 +3,14 @@
 #include <stdlib.h>
 #include "date.h"
 
+Date* date_create(int year, int month, int day) {
+    Date* result = malloc(sizeof(Date));
+    result->year = year;
+    result->month = month;
+    result->day = day;
+    return result;
+}
+
 char* date_to_string(Date* target) {
     char *result = malloc(11);
     sprintf(result, "%d-%d-%d", target->year, target->month, target->day);
