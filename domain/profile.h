@@ -13,7 +13,15 @@ typedef struct {
     char* comment;
 } Profile;
 
+typedef enum {
+    ID,
+    NAME,
+    BIRTHDAY,
+    ADDRESS,
+    COMMENT
+} Column;
+
 Profile* profile_create(int id, char* name, Date* birthday, char* address, char* comment);
-int profile_compare_to_profile(Profile *p1, Profile *p2, int column);
+int profile_compare_to_profile(Profile *p1, Profile *p2, Column column);
 
 #endif //EXP2_PROFILE_H
