@@ -16,6 +16,9 @@ Result parse_line(Profiles *profiles, char* line) {
     char command = line[1];
     char *param = &line[3];
     switch (command) {
+        case 'C':
+            sprintf(message, "%d profile(s)\n", profiles->size);
+            return result_continue(message);
         case 'P':
             if (!is_num(param)) return result_error("%%P command please use num as n.\n");
             return command_print(profiles, atoi(param));
