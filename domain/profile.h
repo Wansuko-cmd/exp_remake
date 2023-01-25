@@ -14,5 +14,6 @@ typedef struct {
 } Profile;
 
 Profile* profile_create(int id, char* name, Date* birthday, char* address, char* comment);
+int profile_compare_to_profile(Profile *p1, Profile *p2, int column);
 
 #endif //EXP2_PROFILE_H
