@@ -21,10 +21,10 @@ Result parse_line(Profiles *profiles, char* line) {
             return command_print(profiles, atoi(param));
         case 'S':
             if (!is_num(param)) return result_error("%%S command please use num as n.\n");
-            command_sort(profiles, atoi(param));
+            return command_sort(profiles, atoi(param));
         case 'D':
             if (!is_num(param)) return result_error("%%D command please use num as n.\n");
-            command_delete(profiles, atoi(param));
+            return command_delete(profiles, atoi(param));
         case 'F':
             return command_find(profiles, param);
         case 'Q':

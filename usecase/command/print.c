@@ -1,3 +1,4 @@
+#include <printf.h>
 #include "print.h"
 
 Result command_print(Profiles *target, int amount) {
@@ -17,7 +18,7 @@ Result command_print(Profiles *target, int amount) {
     }
 
     for(i = start; i < end; i++){
-
+        printf("%s\n", profile_to_print_format(target->data[i]));
     }
-    return result_continue(profile_to_print_format(target->data[0]));
+    return result_continue("");
 }

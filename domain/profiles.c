@@ -90,7 +90,7 @@ int profiles_delete_profile(Profiles *target, int id) {
         }
 
         /*内容を初期化*/
-        free(target->data[target->size--]);
+        free(target->data[--target->size]);
 
         count++;
     }
