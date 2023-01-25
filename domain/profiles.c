@@ -14,6 +14,7 @@ Profiles* profiles_create() {
 }
 
 void profiles_append(Profiles *target, Profile *value) {
+    if (target->size >= MAX_PROFILE_STORE_NUM) return;
     target->data[target->size] = value;
     target->size += 1;
 }

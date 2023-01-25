@@ -1,12 +1,16 @@
 #include <string.h>
 #include <stdlib.h>
-#include "command.h"
-#include "../utils/char_utils.h"
+#include "register.h"
+#include "../../utils/char_utils.h"
 
 Result command_register(Profiles *target, char *csv){
     char* tmp[6];
     Date *date;
     Profile *profile;
+
+    if (target->size >= MAX_PROFILE_STORE_NUM) {
+        return result_error("Max profiles were inserted.\n");
+    }
 
     /*　5個に分割することができなければ処理を終了　*/
     if (split(csv, tmp, ',', 6) != 5){
