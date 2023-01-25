@@ -74,6 +74,30 @@ void profiles_insert_sort(Profiles *target, int low, int high, Column column) {
     }
 }
 
+int profiles_delete_profile(Profiles *target, int id) {
+    int i, j;
+    int count = 0;
+
+    for(i = 0; i < target->size;){
+        if (target->data[i]->id != id) {
+            i++;
+            continue;
+        }
+
+        /*後ろまで持っていく*/
+        for(j = i; j < target->size - 1; j++){
+            profiles_swap_profile(target, j, j + 1);
+        }
+
+        /*内容を初期化*/
+        free(target->data[target->size--]);
+
+        count++;
+    }
+
+    return count;
+}
+
 void profiles_swap_profile(Profiles *target, int from, int to) {
     Profile *tmp = target->data[from];
     target->data[from] = target->data[to];

@@ -12,5 +12,6 @@ typedef struct {
 Profiles* profiles_create();
 void profiles_append(Profiles *target, Profile *value);
 void profiles_sort(Profiles *target, Column column);
+int profiles_delete_profile(Profiles *target, int id);
 
 #endif //EXP2_PROFILES_H

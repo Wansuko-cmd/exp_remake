@@ -6,6 +6,7 @@
 #include "command/find.h"
 #include "../utils/char_utils.h"
 #include "command/sort.h"
+#include "command/delete.h"
 
 Result parse_line(Profiles *profiles, char* line) {
     /* エラー用メッセージ */
@@ -21,6 +22,9 @@ Result parse_line(Profiles *profiles, char* line) {
         case 'S':
             if (!is_num(param)) return result_error("%%S command please use num as n.\n");
             command_sort(profiles, atoi(param));
+        case 'D':
+            if (!is_num(param)) return result_error("%%D command please use num as n.\n");
+            command_delete(profiles, atoi(param));
         case 'F':
             return command_find(profiles, param);
         case 'Q':
