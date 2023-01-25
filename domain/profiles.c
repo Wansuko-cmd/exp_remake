@@ -6,6 +6,11 @@ void profiles_quick_sort(Profiles *target, int left, int right, Column column);
 void profiles_insert_sort(Profiles *target, int low, int high, Column column);
 void profiles_swap_profile(Profiles *target, int from, int to);
 
+void profiles_append(Profiles *target, Profile *value) {
+    target->data[target->size] = value;
+    target->size += 1;
+}
+
 void profiles_sort(Profiles *target, Column column) {
     profiles_quick_sort(target, 0, target->size, column);
 }
