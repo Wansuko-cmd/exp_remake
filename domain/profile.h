@@ -26,4 +26,6 @@ int profile_compare_to_profile(Profile *p1, Profile *p2, Column column);
 int profile_is_match_by_word(Profile *profile, char word[]);
 char* profile_to_print_format(Profile* target);
 
+Column int_to_column(int value);
+
 #endif //EXP2_PROFILE_H

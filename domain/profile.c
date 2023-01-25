@@ -65,3 +65,20 @@ char* profile_to_print_format(Profile* target) {
     );
     return buf;
 }
+
+Column int_to_column(int value) {
+    switch (value) {
+        case 1:
+            return ID;
+        case 2:
+            return NAME;
+        case 3:
+            return BIRTHDAY;
+        case 4:
+            return ADDRESS;
+        case 5:
+            return COMMENT;
+        default:
+            return -1;
+    }
+}

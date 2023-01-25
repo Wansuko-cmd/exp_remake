@@ -20,7 +20,7 @@ void profiles_append(Profiles *target, Profile *value) {
 }
 
 void profiles_sort(Profiles *target, Column column) {
-    profiles_quick_sort(target, 0, target->size, column);
+    profiles_quick_sort(target, 0, target->size - 1, column);
 }
 
 void profiles_quick_sort(Profiles *target, int left, int right, Column column) {
