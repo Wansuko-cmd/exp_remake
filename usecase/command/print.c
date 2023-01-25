@@ -1,8 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "print.h"
-
-char* profile_to_print_format(Profile* target);
 
 Result command_print(Profiles *target, int amount) {
     int i, start = 0;
@@ -24,18 +20,4 @@ Result command_print(Profiles *target, int amount) {
 
     }
     return result_continue(profile_to_print_format(target->data[0]));
-}
-
-char* profile_to_print_format(Profile* target) {
-    char *buf = malloc(1024);
-    sprintf(
-            buf,
-            "Id    : %d\n"
-            "Name  : %s\n"
-            "Birth : %s\n"
-            "Addr. : %s\n"
-            "Comm. : %s\n",
-            target->id, target->name, date_to_string(target->birthday), target->address, target->comment
-            );
-    return buf;
 }

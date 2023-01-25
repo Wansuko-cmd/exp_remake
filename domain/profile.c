@@ -1,5 +1,6 @@
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include "profile.h"
 
 Profile* profile_create(int id, char* name, Date* birthday, char* address, char* comment) {
@@ -35,4 +36,32 @@ int profile_compare_to_profile(Profile *p1, Profile *p2, Column column) {
         default:
             return 0;
     }
+}
+
+int profile_is_match_by_word(Profile *profile, char word[]) {
+
+    char id[MAX_STR_LENGTH];
+    sprintf(id, "%d", profile->id);
+
+    if(!strcmp(id, word)) return 1;
+    if(!strcmp(profile->name, word)) return 1;
+    if(!strcmp(date_to_string(profile->birthday), word)) return 1;
+    if(!strcmp(profile->address, word)) return 1;
+    if(!strcmp(profile->comment, word)) return 1;
+
+    return 0;
+}
+
+char* profile_to_print_format(Profile* target) {
+    char *buf = malloc(1024);
+    sprintf(
+            buf,
+            "Id    : %d\n"
+            "Name  : %s\n"
+            "Birth : %s\n"
+            "Addr. : %s\n"
+            "Comm. : %s\n",
+            target->id, target->name, date_to_string(target->birthday), target->address, target->comment
+    );
+    return buf;
 }
