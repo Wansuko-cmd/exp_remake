@@ -7,6 +7,7 @@
 #include "../utils/char_utils.h"
 #include "command/sort.h"
 #include "command/delete.h"
+#include "command/read.h"
 
 Result parse_line(Profiles *profiles, char* line) {
     /* エラー用メッセージ */
@@ -19,6 +20,8 @@ Result parse_line(Profiles *profiles, char* line) {
         case 'C':
             sprintf(message, "%d profile(s)\n", profiles->size);
             return result_continue(message);
+        case 'R':
+            return command_read(profiles, param);
         case 'P':
             if (!is_num(param)) return result_error("%%P command please use num as n.\n");
             return command_print(profiles, atoi(param));
