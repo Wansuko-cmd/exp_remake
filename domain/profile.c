@@ -54,7 +54,17 @@ int profile_is_match_by_word(Profile *profile, char word[]) {
     return 0;
 }
 
-char* profile_to_print_format(Profile* target) {
+char* profile_to_string(Profile *target) {
+    char *buf = malloc(1024);
+    sprintf(
+            buf,
+            "%d, %s, %s, %s, %s\n",
+            target->id, target->name, date_to_string(target->birthday), target->address, target->comment
+    );
+    return buf;
+}
+
+char* profile_to_print_format(Profile *target) {
     char *buf = malloc(1024);
     sprintf(
             buf,

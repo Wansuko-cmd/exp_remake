@@ -8,6 +8,7 @@
 #include "command/sort.h"
 #include "command/delete.h"
 #include "command/read.h"
+#include "command/write.h"
 
 Result parse_line(Profiles *profiles, char* line) {
     /* エラー用メッセージ */
@@ -22,6 +23,8 @@ Result parse_line(Profiles *profiles, char* line) {
             return result_continue(message);
         case 'R':
             return command_read(profiles, param);
+        case 'W':
+            return command_write(profiles, param);
         case 'P':
             if (!is_num(param)) return result_error("%%P command please use num as n.\n");
             return command_print(profiles, atoi(param));
