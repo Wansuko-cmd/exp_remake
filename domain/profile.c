@@ -17,7 +17,9 @@ Profile* profile_create(int id, char* name, Date* birthday, char* address, char*
     strncpy(result->address, address, MAX_STR_LENGTH);
     result->address[MAX_STR_LENGTH] = '\0';
 
-    result->comment = comment;
+    result->comment = malloc(strlen(comment));
+    strcpy(result->comment, comment);
+
     return result;
 }
 
